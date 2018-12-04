@@ -293,13 +293,13 @@ endif
 incdir = include_directories('include')
 
 xml2lib = library('xml2', sources,
-		  c_args : c_args,
-		  include_directories : incdir,
-		  dependencies: deps,
+                  c_args : c_args,
+                  include_directories : incdir,
+                  dependencies: deps,
                   install: true)
 xml2lib_dep = declare_dependency(link_with: xml2lib,
-				 include_directories: incdir,
-				 dependencies: deps)
+                                 include_directories: incdir,
+                                 dependencies: deps)
 pkg = import('pkgconfig')
 pkg.generate(name : 'libXML',
              description: 'libXML library version2.',
@@ -314,6 +314,6 @@ executable('xmllint', 'xmllint.c',
            install: true)
 
 dictexe = executable('testdict', 'testdict.c',
-		     dependencies : xml2lib_dep)
+                     dependencies : xml2lib_dep)
 
 test('dict', dictexe)
